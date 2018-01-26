@@ -10,7 +10,6 @@ const onSignUp = function (event) {
   event.preventDefault()
   // close modal window
   $('#signUpModal').modal('hide')
-  // reset form fields
   this.reset()
   // console.log(data)
   api.signUp(data)
@@ -21,7 +20,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  // reset form fields
   this.reset()
   // close modal window
   $('#signInModal').modal('hide')
