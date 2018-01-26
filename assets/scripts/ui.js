@@ -23,6 +23,7 @@ const signInSuccess = function (data) {
   $('#closeSignInButton').hide()
   $('#closeSignUpButton').hide()
   $('#showChangePwButton').removeClass('hidden')
+  $('#showSignOut').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -43,11 +44,28 @@ const changePasswordFailure = function (error) {
   document.getElementById('change-pw').reset()
 }
 
+const signOutSuccess = function (data) {
+  // console.log('Successfully signed out')
+  store.user = null
+  $('#signInMessaging').text('You\'re signed out!')
+  $('#closeSignInButton').show()
+  $('#closeSignUpButton').show()
+  $('#showChangePwButton').addClass('hidden')
+  $('#showSignOut').addClass('hidden')
+}
+
+const signOutFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
