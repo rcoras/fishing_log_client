@@ -8,8 +8,9 @@ const ui = require('./ui')
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  // use next line of code to hide modal, although may want this is success ui?
-  // $('#signUpModal').modal('hide')
+  // close modal window
+  $('#signUpModal').modal('hide')
+  // reset form fields
   this.reset()
   // console.log(data)
   api.signUp(data)
@@ -17,8 +18,21 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  // reset form fields
+  this.reset()
+  // close modal window
+  $('#signInModal').modal('hide')
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
 }
 
 module.exports = {
