@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://rcoras.herokuapp.com'
+    production: 'https://rcoras.herokuapp.com',
+    development: 'http://localhost:4741'
   }
 }
 
