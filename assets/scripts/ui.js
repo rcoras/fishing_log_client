@@ -22,6 +22,7 @@ const signInSuccess = function (data) {
   $('#signInMessaging').text('You\'ve successfully signed in!')
   $('#closeSignInButton').hide()
   $('#closeSignUpButton').hide()
+  $('#showChangePwButton').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -30,9 +31,23 @@ const signInFailure = function (error) {
   document.getElementById('sign-in').reset()
 }
 
+const changePasswordSuccess = function (data) {
+  // console.log('Successfully changed password')
+  $('#signInMessaging').text('Your password has been updated')
+  document.getElementById('change-pw').reset()
+}
+
+const changePasswordFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  document.getElementById('change-pw').reset()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
