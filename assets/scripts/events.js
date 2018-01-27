@@ -47,11 +47,26 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onAddTrip = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  console.log(data)
+  // close modal window
+  $('#add-trip-form').modal('hide')
+  this.reset()
+  // console.log(data)
+  api.addTrip(data)
+    .then(ui.addTripSuccess)
+    .catch(ui.addTripFailure)
+}
+
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-pw').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('#add-trip-form').on('submit', onAddTrip)
 }
 
 module.exports = {

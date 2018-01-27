@@ -59,6 +59,17 @@ const signOutFailure = function (error) {
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
 }
 
+const addTripSuccess = function (data) {
+  $('#signInMessaging').text('Your trip has been added')
+  document.getElementById('add-trip-form').reset()
+}
+
+const addTripFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  document.getElementById('add-trip-form').reset()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -67,5 +78,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  addTripSuccess,
+  addTripFailure
 }
