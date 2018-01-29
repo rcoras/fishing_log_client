@@ -60,6 +60,12 @@ const onAddTrip = function (event) {
     .catch(ui.addTripFailure)
 }
 
+const onGetAllTrips = function (event) {
+  event.preventDefault()
+  api.getAllTrips()
+    .then(ui.getAllTripsSuccess)
+    .catch(ui.getAllTripsFailure)
+}
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
@@ -67,6 +73,7 @@ const addHandlers = function () {
   $('#change-pw').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
   $('#add-trip-form').on('submit', onAddTrip)
+  $('#get-trips').on('click', onGetAllTrips)
 }
 
 module.exports = {

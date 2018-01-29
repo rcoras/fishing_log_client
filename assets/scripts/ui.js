@@ -50,6 +50,7 @@ const signOutSuccess = function (data) {
   $('#signInMessaging').text('You\'re signed out!')
   $('#closeSignInButton').show()
   $('#closeSignUpButton').show()
+  $('#gettrips').show()
   $('#showChangePwButton').addClass('hidden')
   $('#showSignOut').addClass('hidden')
 }
@@ -71,6 +72,28 @@ const addTripFailure = function (error) {
   document.getElementById('add-trip-form').reset()
 }
 
+const getAllTripsSuccess = function (data) {
+  console.log(data)
+  console.log(data.trips)
+  data.trips.forEach(trip => {
+    const tripHtml = (
+      `<ul>
+      <li>Trip ID: ${trip.id}</li>
+      <li>Date: ${trip.trip_date}</li>
+      <li>Trip Length: ${trip.trip_length_hrs}</li>
+      <li>Location: ${trip.location}</li>
+      <li>Fish Caught: ${trip.no_of_fish_caught}</li>
+      <li>Comments: ${trip.comments}</li>
+      <ul>`)
+    $('#trips-content').prepend(tripHtml)
+  })
+}
+const getAllTrips = function (error) {
+  console.error(error)
+
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -81,5 +104,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   addTripSuccess,
-  addTripFailure
+  addTripFailure,
+  getAllTripsSuccess,
+  getAllTrips
 }

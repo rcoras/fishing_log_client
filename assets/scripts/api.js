@@ -52,17 +52,17 @@ const addTrip = function (data) {
     data
   })
 }
-//     data: {
-//       'trip': {
-//         'trip_date': 'trip[trip_date]',
-//         'trip_length_hrs': 'trip[trip_length_hrs]',
-//         'location': 'trip[location]',
-//         'no_of_fish_caught': 'trip[no_of_fish_caught]',
-//         'comments': 'trip[comments]',
-//         'user_id': store.user.id
-//       }
-//     }
-//   })
+
+const getAllTrips = function () {
+  console.log('this is happening in the api call')
+  return $.ajax({
+    url: config.apiOrigin + '/trips',
+    method: 'GET'
+  })
+}
+
+// headers: {
+//   Authorization: 'Token token=' + store.user.token
 // }
 
 module.exports = {
@@ -70,5 +70,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  addTrip
+  addTrip,
+  getAllTrips
 }
