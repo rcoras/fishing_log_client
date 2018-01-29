@@ -67,6 +67,18 @@ const onGetAllTrips = function (event) {
     .catch(ui.getAllTripsFailure)
 }
 
+const onDeleteTrips = function (event) {
+  const data = getFormFields(event.target)
+  const trip = data.id
+  event.preventDefault()
+  this.reset()
+  // close modal window
+  $('#deleteTripModal').modal('hide')
+  api.deleteTrip(trip)
+    .then(ui.deleteTripSuccess)
+    .catch(ui.deleteTripFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -74,6 +86,7 @@ const addHandlers = function () {
   $('#sign-out').on('click', onSignOut)
   $('#add-trip-form').on('submit', onAddTrip)
   $('#get-trips').on('click', onGetAllTrips)
+  $('#delete-trip').on('submit', onDeleteTrips)
 }
 
 module.exports = {

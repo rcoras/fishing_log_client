@@ -65,11 +65,24 @@ const getAllTrips = function () {
 //   Authorization: 'Token token=' + store.user.token
 // }
 
+const deleteTrip = function (data) {
+  console.log(data)
+  console.log('just console logged data')
+  return $.ajax({
+    url: config.apiOrigin + '/trips/' + data.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   addTrip,
-  getAllTrips
+  getAllTrips,
+  deleteTrip
 }

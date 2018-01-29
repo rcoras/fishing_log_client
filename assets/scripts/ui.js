@@ -90,8 +90,20 @@ const getAllTripsSuccess = function (data) {
 }
 const getAllTrips = function (error) {
   console.error(error)
-
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+}
+
+
+const deleteTripSuccess = function (data) {
+  console.log('trip deleted')
+  $('#signInMessaging').text('Your trip has been removed')
+  document.getElementById('delete-trip').reset()
+}
+
+const deleteTripFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  document.getElementById('delete-trip').reset()
 }
 
 module.exports = {
@@ -106,5 +118,7 @@ module.exports = {
   addTripSuccess,
   addTripFailure,
   getAllTripsSuccess,
-  getAllTrips
+  getAllTrips,
+  deleteTripSuccess,
+  deleteTripFailure
 }

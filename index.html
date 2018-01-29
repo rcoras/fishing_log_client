@@ -27,6 +27,7 @@
         Change Password
         </button>
 
+<!--sign out button  -->
         <form id="sign-out">
           <button type="button" class="btn hidden" id="showSignOut">
             Sign Out
@@ -48,6 +49,11 @@
       </form>
       <!--Add space to return all trip info -->
       <div id="trips-content"></div>
+
+<!--Delete trips button to trigger modal -->
+      <button type="button" class="btn" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
+      Delete a Trip
+      </button>
 
 <!--Add button and form to add trip  -->
         <div class="add-trip">
@@ -155,6 +161,33 @@
             <input type="text" name="passwords[old]" placeholder="Old Password">
             <input type="password" name="passwords[new]" placeholder="New Password">
             <input type="submit" name="submit" class="btn btn-primary" value="Change Password!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Trip modal  -->
+<div class="modal fade" id="deleteTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <form id="delete-trip">
+          <fieldset>
+            <legend><br>Delete a Trip</legend>
+            <input type="text" name="id[id]" placeholder="ID of trip to delete">
+            <input type="submit" name="submit" class="btn btn-primary" value="Delete it">
           </fieldset>
         </form>
       </div>
