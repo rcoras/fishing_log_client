@@ -60,6 +60,7 @@ const signOutFailure = function (error) {
 }
 
 const addTripSuccess = function (data) {
+  console.log('trip has been added')
   $('#signInMessaging').text('Your trip has been added')
   document.getElementById('add-trip-form').reset()
 }
