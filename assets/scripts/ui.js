@@ -25,6 +25,7 @@ const signInSuccess = function (data) {
   $('#showChangePwButton').removeClass('hidden')
   $('#showSignOut').removeClass('hidden')
   $('#closeUpdateButton').removeClass('hidden')
+  $('#closeAddButton').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -54,6 +55,8 @@ const signOutSuccess = function (data) {
   $('#gettrips').show()
   $('#showChangePwButton').addClass('hidden')
   $('#showSignOut').addClass('hidden')
+  $('#closeUpdateButton').addClass('hidden')
+  $('#closeAddButton').addClass('hidden')
 }
 
 const signOutFailure = function (error) {

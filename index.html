@@ -55,23 +55,12 @@
       Delete a Trip
       </button>
 
-<!--Add button and form to add trip  -->
-        <div class="add-trip">
-          <form id="add-trip-form">
-            <fieldset>
-              <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
-              <legend><br>Add Trip!</legend>
-              <input type="date" name="trip[trip_date]" placeholder="When did ya fish?">
-              <input type="number" name="trip[trip_length_hrs]" placeholder="How many hours was your trip?">
-              <input type="text" name="trip[location]" placeholder="Where did ya fish?">
-              <input type="number" name="trip[no_of_fish_caught]" placeholder="How many did ya get?">
-              <input type="text" name="trip[comments]" placeholder="Comments go here">
-              <input type="submit" name="submit" class="btn btn-primary" value="Add a trip!">
-            </fieldset>
-          </form>
-        </div>
+<!--Add button to add trip  -->
+      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#addModal" id="closeAddButton">
+      Add a Trip
+      </button>
 
-        <!--Add button and form to update trip -->
+        <!--Add button update trip -->
         <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#updateModal" id="closeUpdateButton">
         Update a Trip
         </button>
@@ -221,6 +210,37 @@
           </div>
         </div>
 
+        <!--Add Trip modal  -->
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="add-trip-form">
+                          <fieldset>
+                            <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
+                            <legend><br>Add Trip!</legend>
+                            <input type="date" name="trip[trip_date]" placeholder="When did ya fish?">
+                            <input type="number" name="trip[trip_length_hrs]" placeholder="How many hours was your trip?">
+                            <input type="text" name="trip[location]" placeholder="Where did ya fish?">
+                            <input type="number" name="trip[no_of_fish_caught]" placeholder="How many did ya get?">
+                            <input type="text" name="trip[comments]" placeholder="Comments go here">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Add a trip!">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
     </body>
 </html>

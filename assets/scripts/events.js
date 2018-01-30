@@ -52,7 +52,7 @@ const onAddTrip = function (event) {
   event.preventDefault()
   console.log(data)
   // close modal window
-  $('#add-trip-form').modal('hide')
+  $('#addModal').modal('hide')
   this.reset()
   // console.log(data)
   api.addTrip(data)
