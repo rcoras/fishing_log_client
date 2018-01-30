@@ -77,9 +77,10 @@
             <fieldset>
               <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
               <legend><br>Update Trip!</legend>
-              <input type="date" name="trip[trip_date]" placeholder="When did ya fish?">
-              <input type="number" name="trip[trip_length_hrs]" placeholder="How many hours was your trip?">
-              <input type="text" name="trip[location]" placeholder="Where did ya fish?">
+              <input type="number" name="trip[id]" placeholder="ID of trip to update">
+              <input type="date" name="trip[trip_date]" placeholder="Trip date">
+              <input type="number" name="trip[trip_length_hrs]" placeholder="Trip length">
+              <input type="text" name="trip[location]" placeholder="Trip location">
               <input type="number" name="trip[no_of_fish_caught]" placeholder="How many did ya get?">
               <input type="text" name="trip[comments]" placeholder="Comments go here">
               <input type="submit" name="submit" class="btn btn-primary" value="Update Your trip!">

@@ -106,6 +106,18 @@ const deleteTripFailure = function (error) {
   document.getElementById('delete-trip').reset()
 }
 
+const updateTripSuccess = function (data) {
+  console.log('trip updated')
+  $('#signInMessaging').text('Your trip has been updated')
+  document.getElementById('update-trip-form').reset()
+}
+
+const updateTripFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  document.getElementById('update-trip-form').reset()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -120,5 +132,7 @@ module.exports = {
   getAllTripsSuccess,
   getAllTrips,
   deleteTripSuccess,
-  deleteTripFailure
+  deleteTripFailure,
+  updateTripSuccess,
+  updateTripFailure
 }
