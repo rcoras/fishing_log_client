@@ -5,7 +5,7 @@ const signUpSuccess = function (data) {
   console.log(data)
   console.log('successful signed up')
   $('#closeSignUpButton').hide()
-  $('#signInMessaging').text('You\'ve successfully signed up! Log in to start playing!')
+  $('#signInMessaging').text('You\'ve successfully signed up! Log in and start tracking your fishing trips!')
 }
 
 const signUpFailure = function (error) {
@@ -24,6 +24,7 @@ const signInSuccess = function (data) {
   $('#closeSignUpButton').hide()
   $('#showChangePwButton').removeClass('hidden')
   $('#showSignOut').removeClass('hidden')
+  $('#closeUpdateButton').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -92,7 +93,6 @@ const getAllTrips = function (error) {
   console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
 }
-
 
 const deleteTripSuccess = function (data) {
   console.log('trip deleted')

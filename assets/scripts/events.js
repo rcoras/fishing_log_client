@@ -84,6 +84,7 @@ const onUpdateTrip = function (event) {
   // const trip = data.id
   event.preventDefault()
   this.reset()
+  $('#updateModal').modal('hide')
   api.updateTrip(data)
     .then(ui.updateTripSuccess)
     .catch(ui.updateTripFailure)
