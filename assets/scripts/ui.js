@@ -26,6 +26,8 @@ const signInSuccess = function (data) {
   $('#showSignOut').removeClass('hidden')
   $('#closeUpdateButton').removeClass('hidden')
   $('#closeAddButton').removeClass('hidden')
+  $('#closeDeleteButton').removeClass('hidden')
+  $('#get-trips').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -57,6 +59,9 @@ const signOutSuccess = function (data) {
   $('#showSignOut').addClass('hidden')
   $('#closeUpdateButton').addClass('hidden')
   $('#closeAddButton').addClass('hidden')
+  $('#closeDeleteButton').addClass('hidden')
+  $('#get-trips').addClass('hidden')
+  $('#trips-content').addClass('hidden')
 }
 
 const signOutFailure = function (error) {
