@@ -57,7 +57,10 @@ const getAllTrips = function () {
   console.log('this is happening in the api call')
   return $.ajax({
     url: config.apiOrigin + '/trips',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
