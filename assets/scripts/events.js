@@ -91,6 +91,7 @@ const onUpdateTrip = function (event) {
 }
 
 const onGetOneTrip = function (event) {
+  $('#trips-content').html('')
   const data = getFormFields(event.target)
   const trip = data.id
   event.preventDefault()

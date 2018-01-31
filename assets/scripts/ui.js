@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./store')
+const api = require('./api')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -86,6 +87,7 @@ const addTripFailure = function (error) {
 const getAllTripsSuccess = function (data) {
   console.log(data)
   console.log(data.trips)
+  // $('#trips-content').html('')
   data.trips.forEach(trip => {
     const tripHtml = (
       `<ul>
@@ -107,6 +109,7 @@ const getAllTripsFailure = function (error) {
 
 const deleteTripSuccess = function (data) {
   console.log('trip deleted')
+  $('#trips-content').html('')
   $('#signInMessaging').text('Your trip has been removed')
   document.getElementById('delete-trip').reset()
 }
@@ -132,6 +135,7 @@ const updateTripFailure = function (error) {
 const getOneSuccess = function (data) {
   console.log('ui message, hows that div look?')
   console.log(data)
+  $('#trips-content').html('')
   const tripHtml = (`
     <ul>
       <li>Trip ID: ${data.trip.id}</li>
