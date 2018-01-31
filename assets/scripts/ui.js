@@ -85,12 +85,15 @@ const addTripFailure = function (error) {
 }
 
 const getAllTripsSuccess = function (data) {
-  console.log(data)
-  console.log(data.trips)
-  // $('#trips-content').html('')
-  data.trips.forEach(trip => {
-    const tripHtml = (
-      `<ul>
+  if (data.trips.length === 0) {
+    $('#trips-content').text('You don\'t have any trips yet')
+  } else {
+    console.log(data)
+    console.log(data.trips)
+    // $('#trips-content').html('')
+    data.trips.forEach(trip => {
+      const tripHtml = (
+        `<ul>
       <li>Trip ID: ${trip.id}</li>
       <li>Date: ${trip.trip_date}</li>
       <li>Trip Length: ${trip.trip_length_hrs}</li>
@@ -98,8 +101,9 @@ const getAllTripsSuccess = function (data) {
       <li>Fish Caught: ${trip.no_of_fish_caught}</li>
       <li>Comments: ${trip.comments}</li>
       <ul>`)
-    $('#trips-content').prepend(tripHtml)
-  })
+      $('#trips-content').prepend(tripHtml)
+    })
+  }
 }
 
 const getAllTripsFailure = function (error) {
