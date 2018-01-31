@@ -49,6 +49,7 @@ const onSignOut = function (event) {
 
 const onAddTrip = function (event) {
   const data = getFormFields(this)
+  $('#trips-content').html('')
   event.preventDefault()
   console.log(data)
   // close modal window
@@ -61,6 +62,7 @@ const onAddTrip = function (event) {
 }
 
 const onGetAllTrips = function (event) {
+  $('#trips-content').html('')
   event.preventDefault()
   api.getAllTrips()
     .then(ui.getAllTripsSuccess)
@@ -82,6 +84,7 @@ const onDeleteTrips = function (event) {
 const onUpdateTrip = function (event) {
   const data = getFormFields(event.target)
   // const trip = data.id
+  $('#trips-content').html('')
   event.preventDefault()
   this.reset()
   $('#updateModal').modal('hide')
