@@ -15,12 +15,21 @@ The site was built using:
 * Json,
 * Ajax
 
-I created user stories and built out a wireframe inorder to help guide me as I built out my fishing tracker. I started with the idea to build one resource linked to the users and hope to expand to create another table that will store more data for each trip.
+I created user stories and built out a wireframe in order to help guide me as I built out my fishing tracker. I started with the idea to build one resource linked to the users and hope to expand to create another table that will store more data for each trip.
 
 Here are the user stories I started with:
-* As a user I want to be able to login and track how many games I play
-* As a user I want to start a new game once my first game ends
-* As a user I want to see a message declaring the winner when a game ends
-* As a user I want the game to switch from x to o on each turn
+* As a user I want to sign up
+* As a user I want to be able to log in
+* As a user I want to be able to change my password
+* As a user I want to see messaging if any of my sign up/in attempts don't work.
+* As a user I want to be able to add a fishing trip to my log with details of the trip
+* As a user I want to be able to change the details of a trip
+* As a user I want to be able to delete a trip
+* As a user I want to be able to see all the details of my trip
+
+Here is a link to my wireframe: https://imgur.com/WEJwTr0
 
 The backend was also built by me as well. You can see the github repo here:
+https://github.com/rcoras/rails-api-template
+
+And the deployed api url is: https://sleepy-reef-72451.herokuapp.com
