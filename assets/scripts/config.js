@@ -1,5 +1,4 @@
 'use strict'
-//     production: 'https://rcoras.herokuapp.com',
 
 const config = {
   apiOrigins: {
