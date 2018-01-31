@@ -28,6 +28,7 @@ const signInSuccess = function (data) {
   $('#closeAddButton').removeClass('hidden')
   $('#closeDeleteButton').removeClass('hidden')
   $('#get-trips').removeClass('hidden')
+  $('#closeGetOneButton').removeClass('hidden')
 }
 
 const signInFailure = function (error) {
@@ -62,6 +63,7 @@ const signOutSuccess = function (data) {
   $('#closeDeleteButton').addClass('hidden')
   $('#get-trips').addClass('hidden')
   $('#trips-content').addClass('hidden')
+  $('#closeGetOneButton').addClass('hidden')
 }
 
 const signOutFailure = function (error) {
@@ -97,7 +99,8 @@ const getAllTripsSuccess = function (data) {
     $('#trips-content').prepend(tripHtml)
   })
 }
-const getAllTrips = function (error) {
+
+const getAllTripsFailure = function (error) {
   console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
 }
@@ -126,6 +129,26 @@ const updateTripFailure = function (error) {
   document.getElementById('update-trip-form').reset()
 }
 
+const getOneSuccess = function (data) {
+  console.log('ui message, hows that div look?')
+  console.log(data)
+  const tripHtml = (`
+    <ul>
+      <li>Trip ID: ${data.trip.id}</li>
+      <li>Date: ${data.trip.trip_date}</li>
+      <li>Trip Length: ${data.trip.trip_length_hrs}</li>
+      <li>Location: ${data.trip.location}</li>
+      <li>Fish Caught: ${data.trip.no_of_fish_caught}</li>
+      <li>Comments: ${data.trip.comments}</li>
+      <ul>`)
+  $('#trips-content').prepend(tripHtml)
+}
+
+const getOneFailure = function (error) {
+  console.error(error)
+  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -138,9 +161,11 @@ module.exports = {
   addTripSuccess,
   addTripFailure,
   getAllTripsSuccess,
-  getAllTrips,
+  getAllTripsFailure,
   deleteTripSuccess,
   deleteTripFailure,
   updateTripSuccess,
-  updateTripFailure
+  updateTripFailure,
+  getOneSuccess,
+  getOneFailure
 }

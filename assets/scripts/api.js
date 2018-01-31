@@ -92,6 +92,18 @@ const updateTrip = function (data) {
   })
 }
 
+const getOneTrip = function (data) {
+  console.log(data)
+  console.log('just console logged data')
+  return $.ajax({
+    url: config.apiOrigin + '/trips/' + data.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -100,5 +112,6 @@ module.exports = {
   addTrip,
   getAllTrips,
   deleteTrip,
-  updateTrip
+  updateTrip,
+  getOneTrip
 }

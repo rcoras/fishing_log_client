@@ -90,6 +90,18 @@ const onUpdateTrip = function (event) {
     .catch(ui.updateTripFailure)
 }
 
+const onGetOneTrip = function (event) {
+  const data = getFormFields(event.target)
+  const trip = data.id
+  event.preventDefault()
+  this.reset()
+  // close modal window
+  $('#getOneModal').modal('hide')
+  api.getOneTrip(trip)
+    .then(ui.getOneSuccess)
+    .catch(ui.getOneFailure)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -99,6 +111,7 @@ const addHandlers = function () {
   $('#get-trips').on('click', onGetAllTrips)
   $('#delete-trip').on('submit', onDeleteTrips)
   $('#update-trip-form').on('submit', onUpdateTrip)
+  $('#get-one').on('submit', onGetOneTrip)
 }
 
 module.exports = {
