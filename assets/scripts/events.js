@@ -55,7 +55,7 @@ const onAddTrip = function (event) {
   $('#signInMessaging').text('')
   $('#trips-content').html('')
   event.preventDefault()
-  console.log(data)
+  // console.log(data)
   // close modal window
   $('#addModal').modal('hide')
   this.reset()
