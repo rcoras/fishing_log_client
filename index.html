@@ -265,7 +265,7 @@
         <form id="get-one">
           <fieldset>
             <legend><br>See one Trip</legend>
-            <input type="number" name="id[id]" placeholder="ID of trip to see" oninput="validity.valid||(value='')";>
+            <input type="number" min="0" name="id[id]" placeholder="ID of trip to see" oninput="validity.valid||(value='')";>
             <input type="submit" name="submit" class="btn btn-primary" value="Check it out">
           </fieldset>
         </form>
