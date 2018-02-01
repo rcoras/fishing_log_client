@@ -84,7 +84,7 @@ const addTripFailure = function (error) {
 }
 
 const getAllTripsSuccess = function (data) {
-  console.log (data)
+  // console.log (data)
   if (data.trips.length === 0) {
     $('#trips-content').text('You don\'t have any trips yet')
   } else {
@@ -132,7 +132,7 @@ const updateTripSuccess = function (data) {
 
 const updateTripFailure = function (error) {
   console.error(error)
-  $('#user-messages').text('Uh Oh That didn\'t work, try again')
+  $('#user-messages').text('Uh Oh That didn\'t work. Are you sure you have a trip with that ID?')
   document.getElementById('update-trip-form').reset()
 }
 
