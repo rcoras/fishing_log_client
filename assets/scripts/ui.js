@@ -1,6 +1,5 @@
 'use strict'
 const store = require('./store')
-const api = require('./api')
 
 const signUpSuccess = function (data) {
   // console.log(data)
@@ -10,7 +9,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  // console.error(error)
+  console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
   document.getElementById('sign-up').reset()
 }
@@ -33,7 +32,7 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  // console.error(error)
+  console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
   document.getElementById('sign-in').reset()
 }
@@ -45,7 +44,7 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (error) {
-  // console.error(error)
+  console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
   document.getElementById('change-pw').reset()
 }
@@ -68,23 +67,24 @@ const signOutSuccess = function (data) {
 }
 
 const signOutFailure = function (error) {
-  // console.error(error)
+  console.error(error)
   $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
 }
 
 const addTripSuccess = function (data) {
   // console.log('trip has been added')
-  $('#signInMessaging').text('Your trip has been added')
+  $('#user-messages').text('Your trip has been added')
   document.getElementById('add-trip-form').reset()
 }
 
 const addTripFailure = function (error) {
-  // console.error(error)
-  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  console.error(error)
+  $('#user-messages').text('Uh Oh That didn\'t work, try again')
   document.getElementById('add-trip-form').reset()
 }
 
 const getAllTripsSuccess = function (data) {
+  console.log (data)
   if (data.trips.length === 0) {
     $('#trips-content').text('You don\'t have any trips yet')
   } else {
@@ -107,32 +107,32 @@ const getAllTripsSuccess = function (data) {
 }
 
 const getAllTripsFailure = function (error) {
-  // console.error(error)
-  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  console.error(error)
+  $('#user-messages').text('Uh Oh That didn\'t work, try again')
 }
 
 const deleteTripSuccess = function (data) {
   // console.log('trip deleted')
   $('#trips-content').html('')
-  $('#signInMessaging').text('Your trip has been removed')
+  $('#user-messages').text('Your trip has been removed')
   document.getElementById('delete-trip').reset()
 }
 
 const deleteTripFailure = function (error) {
-  // console.error(error)
-  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  console.error(error)
+  $('#user-messages').text('Uh Oh That didn\'t work, are you sure you have a trip with that id?')
   document.getElementById('delete-trip').reset()
 }
 
 const updateTripSuccess = function (data) {
   // console.log('trip updated')
-  $('#signInMessaging').text('Your trip has been updated')
+  $('#user-messages').text('Your trip has been updated')
   document.getElementById('update-trip-form').reset()
 }
 
 const updateTripFailure = function (error) {
-  // console.error(error)
-  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  console.error(error)
+  $('#user-messages').text('Uh Oh That didn\'t work, try again')
   document.getElementById('update-trip-form').reset()
 }
 
@@ -153,8 +153,8 @@ const getOneSuccess = function (data) {
 }
 
 const getOneFailure = function (error) {
-  // console.error(error)
-  $('#signInMessaging').text('Uh Oh That didn\'t work, try again')
+  console.error(error)
+  $('#user-messages').text('Uh Oh That didn\'t work. Are you sure you have a trip with that id?')
 }
 
 module.exports = {

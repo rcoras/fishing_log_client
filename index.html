@@ -13,23 +13,23 @@
     </head>
     <body class="container-fluid">
       <nav class="nav">
-        <button type="button" class="btn" data-toggle="modal" data-target="#signUpModal" id="closeSignUpButton">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal" id="closeSignUpButton">
         Sign Up
         </button>
 
         <!-- Button trigger sign-in modal -->
-        <button type="button" class="btn" data-toggle="modal" data-target="#signInModal" id="closeSignInButton">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal" id="closeSignInButton">
         Sign In
         </button>
 
         <!-- Button trigger change password modal -->
-        <button type="button" class="btn hidden" data-toggle="modal" data-target="#changePwModal" id="showChangePwButton">
+        <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#changePwModal" id="showChangePwButton">
         Change Password
         </button>
 
 <!--sign out button  -->
         <form id="sign-out">
-          <button type="button" class="btn hidden" id="showSignOut">
+          <button type="button" class="btn btn-primary hidden" id="showSignOut">
             Sign Out
           </button>
         </form>
@@ -43,23 +43,24 @@
 
       <!--Add button to show all trips  -->
       <form id="get-all-trips">
-        <button type="submit" id="get-trips" class="hidden">
+        <button type="submit" id="get-trips" class="btn btn-primary hidden">
           See your trips
         </button>
       </form>
 
       <!--add get one trip Button  -->
-      <button type="button" class="btn hidden" data-toggle="modal" data-target="#getOneModal" id="closeGetOneButton">
+      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#getOneModal" id="closeGetOneButton">
       See one Trip
       </button>
 
       <!--Add space to return all trip info -->
+      <div id="user-messages"></div>
       <div id="trips-content" class="list" style="overflow-y: scroll">
 
       </div>
 
 <!--Delete trips button to trigger modal -->
-      <button type="button" class="btn hidden" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
+      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
       Delete a Trip
       </button>
 
@@ -202,9 +203,9 @@
                     <legend><br>Update Trip!</legend>
                     <input type="number" name="trip[id]" placeholder="ID of trip to update" required>
                     <input type="date" name="trip[trip_date]" placeholder="Trip date" required>
-                    <input type="number" name="trip[trip_length_hrs]" placeholder="Trip length" required>
                     <input type="text" name="trip[location]" placeholder="Trip location" required>
-                    <input type="number" name="trip[no_of_fish_caught]" placeholder="How many did ya get?" required>
+                    <input type="number" min="0" name="trip[trip_length_hrs]" placeholder="Trip length" oninput="validity.valid||(value='')"; required>
+                    <input type="number" min="0" name="trip[no_of_fish_caught]" placeholder="How many did ya get?" oninput="validity.valid||(value='')"; required >
                     <input type="text" name="trip[comments]" placeholder="Comments go here">
                     <input type="submit" name="submit" class="btn btn-primary" value="Update Your trip!">
                   </fieldset>
@@ -234,8 +235,8 @@
                             <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
                             <legend><br>Add Trip! <br></legend>
                             <input type="date" name="trip[trip_date]" placeholder="When did ya fish?" required>
-                            <input type="number" name="trip[trip_length_hrs]" placeholder="How many hours was your trip?" required>
-                            <input type="text" name="trip[location]" placeholder="Where did ya fish?" required>
+                            <input type="number" name="trip[trip_length_hrs]" placeholder="How many hours was your trip?" oninput="validity.valid||(value='')"; required>
+                            <input type="text" name="trip[location]" placeholder="Where did ya fish?" oninput="validity.valid||(value='')"; required>
                             <input type="number" name="trip[no_of_fish_caught]" placeholder="How many did ya get?" required>
                             <input type="text" name="trip[comments]" placeholder="Comments go here">
                             <input type="submit" name="submit" class="btn btn-primary" value="Add a trip!">

@@ -32,6 +32,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   const data = getFormFields(this)
   $('#signInMessaging').text('')
+  $('#user-messages').text('')
   // console.log(data)
   event.preventDefault()
   $('#changePwModal').modal('hide')
@@ -45,6 +46,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   $('#signInMessaging').text('')
   $('#message').text('')
+  $('#user-messages').text('')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -54,6 +56,7 @@ const onAddTrip = function (event) {
   const data = getFormFields(this)
   $('#signInMessaging').text('')
   $('#trips-content').html('')
+  $('#user-messages').text('')
   event.preventDefault()
   // console.log(data)
   // close modal window
@@ -68,6 +71,7 @@ const onAddTrip = function (event) {
 const onGetAllTrips = function (event) {
   $('#signInMessaging').text('')
   $('#trips-content').html('')
+  $('#user-messages').text('')
   event.preventDefault()
   api.getAllTrips()
     .then(ui.getAllTripsSuccess)
@@ -78,6 +82,7 @@ const onDeleteTrips = function (event) {
   const data = getFormFields(event.target)
   const trip = data.id
   $('#signInMessaging').text('')
+  $('#user-messages').text('')
   event.preventDefault()
   this.reset()
   // close modal window
@@ -92,6 +97,7 @@ const onUpdateTrip = function (event) {
   // const trip = data.id
   $('#signInMessaging').text('')
   $('#trips-content').html('')
+  $('#user-messages').text('')
   event.preventDefault()
   this.reset()
   $('#updateModal').modal('hide')
@@ -103,6 +109,7 @@ const onUpdateTrip = function (event) {
 const onGetOneTrip = function (event) {
   $('#trips-content').html('')
   $('#signInMessaging').text('')
+  $('#user-messages').text('')
   const data = getFormFields(event.target)
   const trip = data.id
   event.preventDefault()
