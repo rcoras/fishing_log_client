@@ -27,6 +27,8 @@ Here are the user stories I started with:
 * As a user I want to be able to delete a trip
 * As a user I want to be able to see all the details of my trip
 
+As I continue to work on the project I'd like to add a nice design and I'd like to have more data a user can enter and retrieve.
+
 Here is a link to my wireframe: https://imgur.com/WEJwTr0
 
 The backend was also built by me as well. You can see the github repo here:
