@@ -18,28 +18,30 @@ body {
 </style> -->
     </head>
     <body class="container-fluid">
+      <div class="spacer"></div>
+      <div class="spacer"></div>
       <nav class="nav">
 
-        <button type="button" class="button btn btn-primary" data-toggle="modal" data-target="#signUpModal" id="closeSignUpButton">
+        <button type="button" class="navbutton" data-toggle="modal" data-target="#signUpModal" id="closeSignUpButton">
         Sign Up
         </button>
 
         <!-- Button trigger sign-in modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal" id="closeSignInButton">
+        <button type="button" class="navbutton" data-toggle="modal" data-target="#signInModal" id="closeSignInButton">
         Sign In
         </button>
 
         <!-- Button trigger change password modal -->
-        <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#changePwModal" id="showChangePwButton">
+        <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#changePwModal" id="showChangePwButton">
         Change Password
         </button>
 
 <!--sign out button  -->
-        <form id="sign-out">
-          <button type="button" class="btn btn-primary hidden" id="showSignOut">
+        <!-- <form id="sign-out"> -->
+          <button type="button" class="navbutton hidden" id="showSignOut">
             Sign Out
           </button>
-        </form>
+        <!-- </form> -->
       </nav>
 
         <p id="signInMessaging"></p>
@@ -50,37 +52,41 @@ body {
 
       <!--Add button to show all trips  -->
       <form id="get-all-trips">
-        <button type="submit" id="get-trips" class="btn btn-primary hidden">
+        <button type="submit" id="get-trips" class="navbutton hidden">
           See your trips
         </button>
-      </form>
+
 
       <!--add get one trip Button  -->
-      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#getOneModal" id="closeGetOneButton">
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#getOneModal" id="closeGetOneButton">
       See one Trip
       </button>
-
+</form>
       <!--Add space to return all trip info -->
       <div id="user-messages"></div>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
       <div id="trips-content" class="list" style="overflow-y: scroll">
 
       </div>
-
+<div class="spacer"></div>
 <!--Delete trips button to trigger modal -->
-      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
       Delete a Trip
       </button>
 
 <!--Add button to add trip  -->
-      <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#addModal" id="closeAddButton">
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#addModal" id="closeAddButton">
       Add a Trip
       </button>
 
         <!--Add button update trip -->
-        <button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#updateModal" id="closeUpdateButton">
+        <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#updateModal" id="closeUpdateButton">
         Update a Trip
         </button>
 
+        <div class="spacer"></div>
+        <div class="spacer"></div>
 <!-- sign up modal  -->
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

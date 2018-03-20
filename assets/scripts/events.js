@@ -125,7 +125,7 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-pw').on('submit', onChangePassword)
-  $('#sign-out').on('click', onSignOut)
+  $('#showSignOut').on('click', onSignOut)
   $('#add-trip-form').on('submit', onAddTrip)
   $('#get-trips').on('click', onGetAllTrips)
   $('#delete-trip').on('submit', onDeleteTrips)
