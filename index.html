@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Fishing Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- <style>
+body {
+    background-image: url('./public/Camouflage_1.png');
+    background-repeat: no-repeat;
+}
+</style> -->
+    </head>
+    <body class="container-fluid">
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <nav class="nav">
+
+        <button type="button" class="navbutton" data-toggle="modal" data-target="#signUpModal" id="closeSignUpButton">
+        Sign Up
+        </button>
+
+        <!-- Button trigger sign-in modal -->
+        <button type="button" class="navbutton" data-toggle="modal" data-target="#signInModal" id="closeSignInButton">
+        Sign In
+        </button>
+
+        <!-- Button trigger change password modal -->
+        <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#changePwModal" id="showChangePwButton">
+        Change Password
+        </button>
+
+<!--sign out button  -->
+        <!-- <form id="sign-out"> -->
+          <button type="button" class="navbutton hidden" id="showSignOut">
+            Sign Out
+          </button>
+        <!-- </form> -->
+      </nav>
+
+        <p id="signInMessaging"></p>
+
+      <h1>Freedom Fishing Tracker</h1>
+
+      <p>Keep track of all your fishing stats.</p>
+
+      <!--Add button to show all trips  -->
+      <form id="get-all-trips">
+        <button type="submit" id="get-trips" class="navbutton hidden">
+          See your trips
+        </button>
+
+
+      <!--add get one trip Button  -->
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#getOneModal" id="closeGetOneButton">
+      See one Trip
+      </button>
+</form>
+      <!--Add space to return all trip info -->
+      <div id="user-messages"></div>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+      <div id="trips-content" class="list" style="overflow-y: scroll">
+
+      </div>
+<div class="spacer"></div>
+<!--Delete trips button to trigger modal -->
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#deleteTripModal" id="closeDeleteButton">
+      Delete a Trip
+      </button>
+
+<!--Add button to add trip  -->
+      <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#addModal" id="closeAddButton">
+      Add a Trip
+      </button>
+
+        <!--Add button update trip -->
+        <button type="button" class="navbutton hidden" data-toggle="modal" data-target="#updateModal" id="closeUpdateButton">
+        Update a Trip
+        </button>
+
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+<!-- sign up modal  -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <legend><br>Sign Up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Enter Email">
+            <input type="password" name="credentials[password]" placeholder="Enter Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" name="submit" class="btn btn-primary" value="Create account!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sign in modal  -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <legend><br>Sign In!</legend>
+            <input type="text" name="credentials[email]" placeholder="Enter Email">
+            <input type="password" name="credentials[password]" placeholder="Enter Password">
+            <input type="submit" name="submit" class="btn btn-primary" value="Sign In!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Change PW modal  -->
+<div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <form id="change-pw">
+          <fieldset>
+            <legend><br>Change Password!</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" name="submit" class="btn btn-primary" value="Change Password!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Trip modal  -->
+<div class="modal fade" id="deleteTripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <form id="delete-trip">
+          <fieldset>
+            <legend><br>Delete a Trip</legend>
+            <input type="number" min="0" name="id[id]" placeholder="ID of trip to delete" oninput="validity.valid||(value='')"; required>
+            <input type="submit" name="submit" class="btn btn-primary" value="Delete it">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Update Trip modal  -->
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+                <form id="update-trip-form">
+                  <fieldset>
+                    <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
+                    <legend><br>Update Trip!</legend>
+                    <input type="number" min="0" name="trip[id]" placeholder="ID of trip to update" oninput="validity.valid||(value='')"; required>
+                    <input type="date" name="trip[trip_date]" placeholder="Trip date" required>
+                    <input type="text" name="trip[location]" placeholder="Trip location" required>
+                    <input type="number" min="0" name="trip[trip_length_hrs]" placeholder="Trip length (hrs)" oninput="validity.valid||(value='')"; required>
+                    <input type="number" min="0" name="trip[no_of_fish_caught]" placeholder="How many did ya get?" oninput="validity.valid||(value='')"; required >
+                    <input type="text" name="trip[comments]" placeholder="Comments go here">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Update Your trip!">
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Add Trip modal  -->
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="add-trip-form">
+                          <fieldset>
+                            <!-- params.require(:trip).permit(:trip_date, :trip_length_hrs, :location, :no_of_fish_caught, :comments, :user_id) -->
+                            <legend><br>Add Trip! <br></legend>
+                            <input type="date" name="trip[trip_date]" placeholder="When did ya fish?" required>
+                            <input type="text" name="trip[location]" placeholder="Where did ya fish?" required>
+                            <input type="number" min="0" name="trip[trip_length_hrs]" placeholder="Trip length (hrs)" oninput="validity.valid||(value='')"; required>
+                            <input type="number" min="0" name="trip[no_of_fish_caught]" placeholder="How many did ya get?" oninput="validity.valid||(value='')"; required>
+                            <input type="text" name="trip[comments]" placeholder="Comments go here">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Add a trip!">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          <!-- Get one Trip modal  -->
+        <div class="modal fade" id="getOneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+        <!-- <h5 class="modal-title" id="signUpModalLabel">Sign Up Here</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body">
+        <form id="get-one">
+          <fieldset>
+            <legend><br>See one Trip</legend>
+            <input type="number" min="0" name="id[id]" placeholder="ID of trip to see" oninput="validity.valid||(value='')";>
+            <input type="submit" name="submit" class="btn btn-primary" value="Check it out">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+    </body>
+</html>
